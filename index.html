@@ -1,0 +1,42 @@
+<html>
+
+<head>
+    <title>function visualization</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.10.0/vis.min.css">
+    <style type="text/css">
+        #viz {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+    <script src="http://cdn.rawgit.com/almende/vis/master/dist/vis.js"></script>
+    <script src="eop.js"></script>
+    <script type="text/javascript">
+        'use strict';
+
+        function transform(numbers) {
+            numbers.map(function (num) {
+                return num * num
+            });
+
+            numbers.filter(function (num) {
+                return (num % 2 == 0);
+            });
+
+            numbers.reduce(function (prev, current) {
+                return prev + current;
+            }, 0);
+        }
+
+        window.addEventListener('load', function () {
+            console.log('Loaded; invoking eop');
+            eop(transform.bind(null, [1, 2, 3, 4, 5]), 'viz');
+        });
+    </script>
+</head>
+
+<body>
+    <div id="viz"></div>
+</body>
+
+</html>
