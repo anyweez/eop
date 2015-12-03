@@ -30,7 +30,7 @@
 
         window.addEventListener('load', function () {
             console.log('Loaded; invoking eop');
-            eop(transform.bind(null, [1, 2, 3, 4, 5]), 'viz');
+            eop('viz', transform, [1, 2, 3, 4, 5]);
         });
     </script>
 </head>

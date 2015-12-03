@@ -120,9 +120,10 @@ var eop = (function () {
     // TODO: this isn't being preserved when primitives are used (common case).
     Number.prototype._eopid = null;
 
-    return function (func, elementId) {
-        func();
-
+    // TODO: currently only allows a single parameter. The last `args` param should really
+    // accept all params after #2 but I'm pretty sure ES6's ... is the only way to do that.
+    return function (elementId, func, args) {
+        func(args);
 
         new vis.Network(document.getElementById(elementId), {
             nodes: nodes,
